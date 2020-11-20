@@ -19,6 +19,7 @@ prepare_build () {
   brew install upx go
   sudo apt intall upx golang || sudo snap install upx golang
   sudo yum intall upx golang || sudo snap install upx golang
+  # fix and add on windows bitsadmin /transfer myDownloadJob /download /priority normal https://upx.path upx.exe
 
 
   BUILDINFOFILE="${EXE_BASENAME}_buildinfo.txt"
