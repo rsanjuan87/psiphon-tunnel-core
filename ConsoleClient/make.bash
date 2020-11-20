@@ -73,7 +73,7 @@ build_for_windows () {
   ## We are finding that UPXing the full Windows Psiphon client produces better results if psiphon-tunnel-core.exe is not already UPX'd.
   #echo "..No UPX for this build"
   # but I San try to upxkiarlos
-  upx bin/darwin/${EXE_BASENAME}-x86_64.exe -9
+  upx bin/darwin/${EXE_BASENAME}-xi686.exe -9
 
   echo "...Building windows-x86_64"
 
