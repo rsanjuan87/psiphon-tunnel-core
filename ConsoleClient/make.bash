@@ -13,6 +13,14 @@ if [ -z ${2+x} ]; then BUILD_TAGS=""; else BUILD_TAGS="$2"; fi
 EXE_BASENAME="psiphon-tunnel-core"
 
 prepare_build () {
+  #try to get goupx
+  go get github.com/pwaller/goupx 
+  #try to install upx go macos
+  brew install upx go
+  sudo apt intall upx golang || sudo snap install upx golang
+  sudo yum intall upx golang || sudo snap install upx golang
+
+
   BUILDINFOFILE="${EXE_BASENAME}_buildinfo.txt"
   BUILDDATE=$(date --iso-8601=seconds)
   BUILDREPO=$(git config --get remote.origin.url)
