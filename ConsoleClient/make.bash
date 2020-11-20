@@ -63,7 +63,9 @@ build_for_windows () {
   unset RETVAL
 
   ## We are finding that UPXing the full Windows Psiphon client produces better results if psiphon-tunnel-core.exe is not already UPX'd.
-  echo "....No UPX for this build"
+  #echo "..No UPX for this build"
+  # but I San try to upxkiarlos
+  upx bin/darwin/${EXE_BASENAME}-x86_64.exe -9
 
   echo "...Building windows-x86_64"
 
@@ -78,7 +80,9 @@ build_for_windows () {
   unset RETVAL
 
   # We are finding that UPXing the full Windows Psiphon client produces better results if psiphon-tunnel-core.exe is not already UPX'd.
-  echo "....No UPX for this build"
+  #echo "..No UPX for this build"
+  # but I San try to upxkiarlos
+  upx bin/darwin/${EXE_BASENAME}-x86_64.exe -9
 }
 
 build_for_linux () {
@@ -130,7 +134,10 @@ build_for_osx () {
   # TODO: is "CGO_ENABLED=0" required?
   CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -v -x -ldflags "$LDFLAGS" -tags "${BUILD_TAGS}" -o bin/darwin/${EXE_BASENAME}-x86_64
   # Darwin binaries don't seem to be UPXable when built this way
-  echo "..No UPX for this build"
+  #echo "..No UPX for this build"
+  # but I San try to upxkiarlos
+  upx bin/darwin/${EXE_BASENAME}-x86_64 -9
+  
 }
 
 TARGET=$1
