@@ -13,14 +13,15 @@ if [ -z ${2+x} ]; then BUILD_TAGS=""; else BUILD_TAGS="$2"; fi
 EXE_BASENAME="psiphon-tunnel-core"
 
 prepare_build () {
-  #try to get goupx
-  go get github.com/pwaller/goupx 
   #try to install upx go macos
   brew install upx go
   sudo apt intall upx golang || sudo snap install upx golang
   sudo yum intall upx golang || sudo snap install upx golang
   # fix and add on windows bitsadmin /transfer myDownloadJob /download /priority normal https://upx.path upx.exe
+  # y adicionar el de go installer
 
+  #try to get goupx
+  go get github.com/pwaller/goupx 
 
   BUILDINFOFILE="${EXE_BASENAME}_buildinfo.txt"
   #BUILDDATE=$(date --iso-8601=seconds)
